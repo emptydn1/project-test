@@ -1,0 +1,109 @@
+@use '../utils' as *;
+
+.project {
+  a {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__heading {
+    text-align: center;
+    margin-bottom: mb(142, 1.5, 60, 0, 0);
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: rem(130);
+    margin-bottom: rem(115);
+
+    @include breakpoint-down(medium) {
+      flex-direction: column;
+      gap: rem(30);
+    }
+    // &:not(:last-child) {
+    // }
+    .wrapper {
+      position: relative;
+      &::before {
+        position: absolute;
+        content: "";
+        top: -10%;
+        left: -10%;
+        height: 100%;
+        width: 100%;
+        border: rem(7) solid var(--color-1);
+        border-radius: rem(25);
+        z-index: -1;
+
+        @include breakpoint-down(medium) {
+          left: auto;
+          right: -10%;
+        }
+
+        @include breakpoint-down(small) {
+          content: none;
+        }
+      }
+      img {
+        @include breakpoint-down(small) {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    &:nth-child(2) {
+      .wrapper {
+        order: 1;
+        @include breakpoint-down(medium) {
+          order: 0;
+        }
+        &::before {
+          @include breakpoint-down(medium) {
+            position: absolute;
+            content: "";
+            top: -10%;
+            left: -10%;
+            height: 100%;
+            width: 100%;
+            border: rem(7) solid var(--color-1);
+            border-radius: rem(25);
+            z-index: -1;
+          }
+          @include breakpoint-down(small) {
+            content: none;
+          }
+        }
+      }
+    }
+  }
+  &__content {
+    max-width: rem(570);
+
+    h5 {
+      line-height: 1.75;
+      letter-spacing: letter(-25);
+      font-size: rem(24);
+      margin-bottom: mb(20, 1.75, 24, 1.28571429, 42);
+    }
+    h3 {
+      font-family: var(--font-over);
+      font-weight: 800;
+      line-height: 1.28571429;
+      font-size: rem(42);
+      margin-bottom: mb(38, 1.28571429, 42, 1.6, 20);
+    }
+    p {
+      font-size: rem(20);
+      line-height: 1.6;
+      opacity: 0.8;
+      margin-bottom: mb(48, 1.6, 20, 0, 0);
+      color: hsl(0, 3%, 36%);
+    }
+  }
+}

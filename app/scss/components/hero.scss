@@ -1,0 +1,41 @@
+@use '../utils' as *;
+
+.hero {
+  position: relative;
+  background-color: var(--color-bg);
+
+  .container {
+    position: relative;
+  }
+
+  &__image {
+    position: absolute;
+    right: rem(80);
+    top: 50%;
+    transform: translateY(-50%);
+    @include breakpoint-down(medium) {
+      opacity: 0.4;
+    }
+    @include breakpoint-down(medium) {
+      opacity: 0.2;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    max-width: rem(570);
+    @include breakpoint-down(medium) {
+      margin: 0 auto;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: mb(56, 1.2, 90, 1.4, 30);
+    }
+    p {
+      font-family: var(--font-roboto);
+      font-size: rem(30);
+      line-height: 1.4;
+      margin-bottom: mb(88, 1.4, 30, 4.5, 24);
+    }
+  }
+}

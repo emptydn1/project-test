@@ -1,0 +1,50 @@
+@use '../utils' as *;
+
+.team {
+  &__heading {
+    text-align: center;
+    margin-bottom: mb(155, 1.5, 60, 0, 0);
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+
+    @include breakpoint-down(medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint-down(small) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__item {
+    @include breakpoint-down(medium) {
+      margin-bottom: rem(20);
+    }
+    @include breakpoint-down(small) {
+      margin-bottom: rem(100);
+    }
+    img {
+      margin-bottom: mb(42, 0, 0, 2, 24);
+    }
+    h5 {
+      font-size: rem(24);
+      font-family: var(--font-over);
+      font-weight: 800;
+      line-height: 2;
+      margin-bottom: mb(18, 2, 24, 0, 0);
+    }
+    p {
+      font-size: rem(18);
+      color: #adb0ba;
+    }
+
+    &:nth-child(2n) {
+      transform: translateY(50px);
+      @include breakpoint-down(medium) {
+        transform: translateY(0);
+      }
+    }
+  }
+}

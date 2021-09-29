@@ -1,0 +1,54 @@
+@use '../utils' as *;
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-over);
+  font-weight: 800;
+  font-size: rem(24);
+  background-color: var(--color-button);
+  box-shadow: 0px 10px 18px 0px hsla(0, 0%, 0%, 0.08);
+  border-radius: rem(7);
+  padding: rem(28) rem(60);
+  color: hsl(0, 0%, 100%);
+  text-transform: uppercase;
+
+  &--sm {
+    font-size: rem(18);
+    padding: rem(23) rem(48) rem(24);
+  }
+
+  &--bg {
+    border: rem(2) solid var(--color-button);
+    background-color: hsla(287, 72%, 59%, 0);
+    color: var(--color-heading);
+    padding: rem(21) rem(46) rem(22);
+    letter-spacing: letter(-25);
+    font-size: rem(18);
+  }
+
+  &--under {
+    position: relative;
+    border: none;
+    padding: rem(12) 0;
+    font-size: rem(18);
+    background-color: hsla(287, 72%, 59%, 0);
+    box-shadow: none;
+    color: var(--color-heading);
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: rem(4);
+      transition: 0.4s;
+    }
+
+    &:hover::before {
+      width: 100%;
+      background-color: var(--color-button);
+    }
+  }
+}
